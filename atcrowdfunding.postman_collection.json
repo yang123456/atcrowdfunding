@@ -1,0 +1,295 @@
+{
+	"info": {
+		"name": "atcrowdfunding",
+		"_postman_id": "49214ca2-8fac-1fba-7050-abfeb74cc043",
+		"description": "我的个人项目",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "atcrowdfunding-portal-service-boot",
+			"description": "",
+			"item": [
+				{
+					"name": "{{host}}/hello",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{host}}/hello",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"hello"
+							]
+						},
+						"description": "hello world"
+					},
+					"response": []
+				},
+				{
+					"name": "{{host}}/api/city?cityName=shanghai",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{host}}/api/city?cityName=shanghai",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"city"
+							],
+							"query": [
+								{
+									"key": "cityName",
+									"value": "shanghai",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "{{host}}/show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{host}}/show",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"show"
+							]
+						},
+						"description": "mybatis注解"
+					},
+					"response": []
+				},
+				{
+					"name": "{{host}}/insert",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{host}}/insert?name=啊啊啊&age=12",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"insert"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "啊啊啊",
+									"equals": true
+								},
+								{
+									"key": "age",
+									"value": "12",
+									"equals": true
+								}
+							]
+						},
+						"description": "mybatis注解"
+					},
+					"response": []
+				},
+				{
+					"name": "{{host}}/showDao",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{host}}/showDao?age=12",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"showDao"
+							],
+							"query": [
+								{
+									"key": "age",
+									"value": "12",
+									"equals": true
+								}
+							]
+						},
+						"description": "mybatis注解"
+					},
+					"response": []
+				},
+				{
+					"name": "{{host}}/manager/selectByPrimaryKey?id=1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{host}}/manager/selectByPrimaryKey?id=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"manager",
+								"selectByPrimaryKey"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1",
+									"equals": true
+								}
+							]
+						},
+						"description": "jpa"
+					},
+					"response": []
+				},
+				{
+					"name": "{{host}}/manager/insert",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "manguid",
+									"value": "0001",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "张三",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "7623214@qq.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"value": "123",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "中国",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "province",
+									"value": "湖北",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "黄冈",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "regtime",
+									"value": "2018-11-11 00:00:00",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "regip",
+									"value": "127.0.0.1",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "0",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/manager/insert",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"manager",
+								"insert"
+							]
+						},
+						"description": "jpa"
+					},
+					"response": []
+				},
+				{
+					"name": "{{host}}/manager/selectAll",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{host}}/manager/selectAll",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"manager",
+								"selectAll"
+							]
+						},
+						"description": "jpa"
+					},
+					"response": []
+				},
+				{
+					"name": "{{host}}/getUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{host}}/manager/selectAll",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"manager",
+								"selectAll"
+							]
+						},
+						"description": "jpa"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
