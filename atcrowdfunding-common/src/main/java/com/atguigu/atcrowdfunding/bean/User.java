@@ -7,7 +7,7 @@ public class User {
 	private String loginacct;
 	private String userpswd;
 	private String email;
-	private String createtime;
+	private String createtime;//ky
 
 	public String getCreatetime() {
 		return createtime;
