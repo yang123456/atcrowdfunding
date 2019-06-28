@@ -21,7 +21,7 @@ import com.atguigu.atcrowdfunding.entity.Mail;
  * <B>中文类名：</B><BR>
  * <B>概要说明：</B><BR>
  * @author bhz（Alienware）
- * @since 2014年7月2日
+ * @since 2014年7月2日ky
  */
 @Service("mqProducer")
 public class MQProducer {
