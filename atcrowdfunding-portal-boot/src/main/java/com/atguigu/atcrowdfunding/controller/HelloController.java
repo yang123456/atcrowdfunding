@@ -9,28 +9,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.atguigu.atcrowdfunding.dubbo.CityDubboConsumerService;
 
 @Controller
+@RequestMapping("/test")
 public class HelloController {
 	
 	@Autowired
 	CityDubboConsumerService cityService;
 	
-    @RequestMapping("/hello")
+    @RequestMapping("/{name}")
     @ResponseBody
-    public String home() {
-        return "Hello ,spring boot!";
+    public String hello(@PathVariable("name")String name) {
+        return "Hello "+name;
     }
     
-    @RequestMapping("/dubbo")
-    @ResponseBody
-    public String dubbo() {
-    	cityService.printCity();
-        return "Hello ,spring dubbo!";
-    }
-    
-    @RequestMapping("/time/{name}")
-    @ResponseBody
-    public String time(@PathVariable("name") String name) {
-        return "time "+name;
-    }
+  
     
 }

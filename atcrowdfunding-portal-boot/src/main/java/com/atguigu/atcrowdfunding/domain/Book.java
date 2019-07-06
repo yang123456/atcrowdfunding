@@ -28,8 +28,22 @@ public class Book implements Serializable {
      * 简介
      */
     private String introduction;
+    
+    /**
+     * 价格
+     * @return
+     */
+    private double price;
 
-    public Long getId() {
+    public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public Long getId() {
         return id;
     }
 

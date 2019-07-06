@@ -1,0 +1,42 @@
+##测试指令
+
+#hasPermission("user:add")  ##当用户有user:add这个权限时，添加按钮可见
+  <div class="col-md-offset-5 col-md-2">
+      <div class="input-group">
+            <button type="button" class="btn btn-primary pull-left" data-toggle="modal" data-target="#addUserModal">
+            	添加管理员
+            </button>
+      </div>
+  </div>
+#end
+<hr/>
+
+#set($test = "long line that should be truncated")
+#truncate("Testing $test", 20, "...", true)
+
+## #truncateBlock(int maxLength, String suffix, boolean truncateAtWord) 
+#truncateBlock(13, "..." true) 
+    Long block 
+    that will be 
+    truncated
+#end
+
+<hr/>
+#demo("参数1","参数2")
+<hr/>
+#test("Attribute1","Attribute2","Attribute3")
+<h2>单个名字:$user</h2>
+<hr/>
+$userList.size()
+$userList.get(0)  </br>
+$userList.get(1)
+<table>
+#foreach($one in $!{userList})
+	$one
+#end
+</table>
+<hr/>
+#set($directoryRoot="www")
+#set($templateName="index.vm" )
+#set($template="$directoryRoot/$templateName")
+最终结果:$template

@@ -7,65 +7,78 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
-    <context:component-scan base-package="com.atguigu.*" use-default-filters="false" >
-        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-    </context:component-scan>
-    
-    <mvc:default-servlet-handler/>
-    <mvc:annotation-driven />
-    <mvc:interceptors>
-        <mvc:interceptor>
-            <mvc:mapping path="/**" />
-            <mvc:exclude-mapping path="/login" />
-            <mvc:exclude-mapping path="/doAJAXLogin" />
-            <mvc:exclude-mapping path="/bootstrap/**" />
-            <mvc:exclude-mapping path="/css/**" />
-            <mvc:exclude-mapping path="/fonts/**" />
-            <mvc:exclude-mapping path="/img/**" />
-            <mvc:exclude-mapping path="/jquery/**" />
-            <mvc:exclude-mapping path="/layer/**" />
-            <mvc:exclude-mapping path="/script/**" />
-            <mvc:exclude-mapping path="/ztree/**" />
-            <bean class="com.atguigu.atcrowdfunding.web.LoginInterceptor"></bean>
-        </mvc:interceptor>
-        <mvc:interceptor>
-            <mvc:mapping path="/**" />
-            <mvc:exclude-mapping path="/login" />
-            <mvc:exclude-mapping path="/doAJAXLogin" />
-            <mvc:exclude-mapping path="/bootstrap/**" />
-            <mvc:exclude-mapping path="/css/**" />
-            <mvc:exclude-mapping path="/fonts/**" />
-            <mvc:exclude-mapping path="/img/**" />
-            <mvc:exclude-mapping path="/jquery/**" />
-            <mvc:exclude-mapping path="/layer/**" />
-            <mvc:exclude-mapping path="/script/**" />
-            <mvc:exclude-mapping path="/ztree/**" />
-            <bean class="com.atguigu.atcrowdfunding.web.AuthInterceptor"></bean>
-        </mvc:interceptor>
-    </mvc:interceptors>
-    
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/WEB-INF/jsp/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>
-    
-    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" >
-        <property name="messageConverters" >
-            <list>
-                <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" >
-                    <property name="supportedMediaTypes" >
-                        <list>
-                            <value>application/json;charset=UTF-8</value>
-                        </list>
-                    </property>
-                </bean>
-            </list>
-        </property>
-    </bean>
-    
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" p:defaultEncoding="UTF-8" >
-        <property name="maxUploadSize" value="2097152"/>
-        <property name="resolveLazily" value="true"/>
-    </bean>
+	<context:component-scan
+		base-package="com.atguigu.*" use-default-filters="false">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<mvc:default-servlet-handler />
+	<mvc:annotation-driven />
+	<!-- <mvc:interceptors> <mvc:interceptor> <mvc:mapping path="/**" /> <mvc:exclude-mapping 
+		path="/login" /> <mvc:exclude-mapping path="/doAJAXLogin" /> <mvc:exclude-mapping 
+		path="/bootstrap/**" /> <mvc:exclude-mapping path="/css/**" /> <mvc:exclude-mapping 
+		path="/fonts/**" /> <mvc:exclude-mapping path="/img/**" /> <mvc:exclude-mapping 
+		path="/jquery/**" /> <mvc:exclude-mapping path="/layer/**" /> <mvc:exclude-mapping 
+		path="/script/**" /> <mvc:exclude-mapping path="/ztree/**" /> <bean class="com.atguigu.atcrowdfunding.web.LoginInterceptor"></bean> 
+		</mvc:interceptor> <mvc:interceptor> <mvc:mapping path="/**" /> <mvc:exclude-mapping 
+		path="/login" /> <mvc:exclude-mapping path="/doAJAXLogin" /> <mvc:exclude-mapping 
+		path="/bootstrap/**" /> <mvc:exclude-mapping path="/css/**" /> <mvc:exclude-mapping 
+		path="/fonts/**" /> <mvc:exclude-mapping path="/img/**" /> <mvc:exclude-mapping 
+		path="/jquery/**" /> <mvc:exclude-mapping path="/layer/**" /> <mvc:exclude-mapping 
+		path="/script/**" /> <mvc:exclude-mapping path="/ztree/**" /> <bean class="com.atguigu.atcrowdfunding.web.AuthInterceptor"></bean> 
+		</mvc:interceptor> </mvc:interceptors> -->
+	<!-- 视图解析器 根据controller方法的返回值解析结果为 前缀+ return返回值+后缀 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" 
+		/> <property name="prefix" value="/WEB-INF/jsp/" /> <property name="suffix" 
+		value=".jsp" /> </bean> -->
+	<!-- 视图模式配置,velocity配置文件 -->
+	<!--velocity模板配置 -->
+	<!-- 视图模式配置,velocity配置文件 -->
+	<bean id="velocityConfig"
+		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+		<property name="resourceLoaderPath" value="/WEB-INF/vm" />
+		<property name="configLocation" value="classpath:velocity.properties" />
+			<property name="velocityProperties">
+			<props>
+				<prop key="userdirective">
+					com.atguigu.atcrowdfunding.velocity.directive.DemoDirective,
+					com.atguigu.atcrowdfunding.velocity.directive.TestDirective
+				</prop>
+				<prop key="input.encoding">UTF-8</prop>
+				<prop key="output.encoding">UTF-8</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- 配置后缀 -->
+	<bean id="velocityViewResolver"
+		class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+		<property name="suffix" value=".vm" />
+		<property name="contentType">
+			<value>text/html;charset=UTF-8</value>
+		</property>
+	</bean>
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+					<property name="supportedMediaTypes">
+						<list>
+							<value>application/json;charset=UTF-8</value>
+						</list>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+		p:defaultEncoding="UTF-8">
+		<property name="maxUploadSize" value="2097152" />
+		<property name="resolveLazily" value="true" />
+	</bean>
+
 </beans>
