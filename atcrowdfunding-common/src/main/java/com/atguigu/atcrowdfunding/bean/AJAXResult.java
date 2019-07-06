@@ -1,5 +1,5 @@
 package com.atguigu.atcrowdfunding.bean;
-
+//wrw
 public class AJAXResult {
 
 	private boolean success;
