@@ -1,5 +1,6 @@
 package com.atguigu.atcrowdfunding;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -12,6 +13,9 @@ import com.atguigu.atcrowdfunding.dubbo.CityDubboConsumerService;
  *
  */
 @SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
+//@SpringBootApplication
+//mapper 接口类扫描包配置
+@MapperScan(basePackages = { "com.atguigu.atcrowdfunding.dao", "com.atguigu.atcrowdfunding.mapper","com.atguigu.atcrowdfunding.common.dao" })
 public class AtcrowdfundingApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext run = SpringApplication.run(AtcrowdfundingApplication.class, args);
