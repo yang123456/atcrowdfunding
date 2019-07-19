@@ -8,6 +8,7 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.atguigu.atcrowdfunding.domain.Book;
 import com.atguigu.atcrowdfunding.filter.MyFilter;
 import com.atguigu.atcrowdfunding.filter.TimeFilter;
 import com.atguigu.atcrowdfunding.listener.MyListener;
@@ -32,6 +33,13 @@ public class MyConfigure {
 //       };
 //   }
 
+	@Bean
+	public Book mybook() {
+		Book book = new Book();
+		book.setId(1l);
+		return book;
+	}
+	
 	/**
 	 * 注册自己编写的Servlet
 	 * 

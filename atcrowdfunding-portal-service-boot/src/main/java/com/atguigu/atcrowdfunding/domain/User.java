@@ -5,6 +5,16 @@ public class User {
 	private String name;
 	private int age;
 
+	public User(int id, String name, int age) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.age = age;
+	}
+
+	public User() {
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -28,4 +38,11 @@ public class User {
 	public void setAge(int age) {
 		this.age = age;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", age=" + age + "]";
+	}
+	
+	
 }

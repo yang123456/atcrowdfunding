@@ -40,14 +40,31 @@
     </table>
 
     <div><a class="btn btn-primary" href="/book/create" role="button">新增书籍</a></div>
+     <div><input type="button" value="查询" onclick="find();" /></div>
 </div>
 
 
 <script type="text/javascript">
-	var stateObject={};
-	var title="hello";
-	var newurl="/www/aaaa";
-	history.pushState(stateObject,tile,newurl)
+	
+	// 分页查询
+function find() {
+	
+	$.ajax({
+		type : "GET",
+		url  : "/atcrowdfunding/hello",
+		beforeSend : function(){
+		},
+		success : function(result) {
+			alert(result)
+			var stateObject={};
+			var title="hello";
+			var newurl="/www/aaaa";
+//			history.pushState(stateObject,title,newurl)
+		    history.replaceState(stateObject, title,newurl)
+		}
+	});
+}
+       
 
 </script>
 </body>
