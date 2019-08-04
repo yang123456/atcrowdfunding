@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.atguigu</groupId>
@@ -115,20 +114,15 @@
 		<dependency>
 			<groupId>com.github.pagehelper</groupId>
 			<artifactId>pagehelper-spring-boot-starter</artifactId>
-			<version>1.1.0</version>
+			<version>1.2.3</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
-			<version>1.1.1</version>
+			<version>1.2.0</version>
 		</dependency>
 
-		<dependency>
-			<groupId>com.baomidou</groupId>
-			<artifactId>mybatis-plus-boot-starter</artifactId>
-			<version>3.0-gamma</version>
-		</dependency>
 		<dependency>
 			<groupId>org.mybatis.generator</groupId>
 			<artifactId>mybatis-generator-core</artifactId>
@@ -136,6 +130,12 @@
 			<scope>compile</scope>
 			<optional>true</optional>
 		</dependency>
+
+		<!-- mybatisplus集成 -->
+		<!-- <dependency> <groupId>com.baomidou</groupId> <artifactId>mybatis-plus-boot-starter</artifactId> 
+			<version>3.0-gamma</version> </dependency> -->
+
+
 		<!--druid -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -222,17 +222,9 @@
 		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-data-redis</artifactId> 
 			</dependency> -->
 		<!-- quartz -->
-		<dependency>
-			<groupId>org.quartz-scheduler</groupId>
-			<artifactId>quartz</artifactId>
-			<version>2.2.1</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>slf4j-api</artifactId>
-					<groupId>org.slf4j</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+		<!-- <dependency> <groupId>org.quartz-scheduler</groupId> <artifactId>quartz</artifactId> 
+			<version>2.2.1</version> <exclusions> <exclusion> <artifactId>slf4j-api</artifactId> 
+			<groupId>org.slf4j</groupId> </exclusion> </exclusions> </dependency> -->
 		<!-- SpringWebSocket依赖 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -325,8 +317,10 @@
 		</dependency>
 
 		<!-- spring-boot-starter-data-mongodb -->
-		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-data-mongodb</artifactId> 
-			</dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>

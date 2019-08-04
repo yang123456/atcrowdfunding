@@ -12,10 +12,10 @@ import com.atguigu.atcrowdfunding.dubbo.CityDubboConsumerService;
  * Spring Boot 应用启动类
  *
  */
-@SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
-//@SpringBootApplication
+//@SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
+@SpringBootApplication
 //mapper 接口类扫描包配置
-@MapperScan(basePackages = { "com.atguigu.atcrowdfunding.dao", "com.atguigu.atcrowdfunding.mapper","com.atguigu.atcrowdfunding.common.dao" })
+@MapperScan("com.atguigu.atcrowdfunding.mapper")
 public class AtcrowdfundingApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext run = SpringApplication.run(AtcrowdfundingApplication.class, args);

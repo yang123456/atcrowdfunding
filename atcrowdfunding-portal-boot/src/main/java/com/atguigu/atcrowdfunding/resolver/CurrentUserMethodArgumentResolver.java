@@ -18,19 +18,19 @@ import com.atguigu.atcrowdfunding.myannotation.CurrentUser;
  * @author:@luomouren.
  * @Date:2017-12-17 21:43
  */
-//public class CurrentUserMethodArgumentResolver implements HandlerMethodArgumentResolver {
-//    @Override
-//    public boolean supportsParameter(MethodParameter parameter) {
-//        return parameter.getParameterType().isAssignableFrom(SysUser.class)
-//            && parameter.hasParameterAnnotation(CurrentUser.class);//是否有@CurrentUser注解
-//    }
-//
-//    @Override
-//    public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
-//        SysUser user = (SysUser) webRequest.getAttribute(CurrentUserConstants.CURRENT_USER, RequestAttributes.SCOPE_REQUEST);
-//        if (user != null) {
-//            return user;
-//        }
-//        throw new MissingServletRequestPartException(CurrentUserConstants.CURRENT_USER);
-//    }
-//}
+public class CurrentUserMethodArgumentResolver implements HandlerMethodArgumentResolver {
+    @Override
+    public boolean supportsParameter(MethodParameter parameter) {
+        return parameter.getParameterType().isAssignableFrom(SysUser.class)
+            && parameter.hasParameterAnnotation(CurrentUser.class);//是否有@CurrentUser注解
+    }
+
+    @Override
+    public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
+        SysUser user = (SysUser) webRequest.getAttribute(CurrentUserConstants.CURRENT_USER, RequestAttributes.SCOPE_REQUEST);
+        if (user != null) {
+            return user;
+        }
+        throw new MissingServletRequestPartException(CurrentUserConstants.CURRENT_USER);
+    }
+}
