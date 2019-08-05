@@ -25,7 +25,7 @@ import java.lang.reflect.Method;
  */
 @Component
 public class AuthenticationInterceptor implements HandlerInterceptor {
-    public final static String ACCESS_TOKEN = "accessToken";
+	public final static String ACCESS_TOKEN = "accessToken";
     @Autowired
     private SysUserService userService;
 
