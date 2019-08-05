@@ -90,6 +90,7 @@ public abstract class BaseGuavaCache<K, V> {
                         @Override
                         public V load(K k) throws Exception {
                             //为null时，会抛出异常
+                        	System.out.println("=====load======");
                             return getValueWhenExpired(k);
                         }
 
@@ -135,13 +136,13 @@ public abstract class BaseGuavaCache<K, V> {
     public V getValueOfDefault(K key, V defaultValue){
         try {
             return getCache().get(key);
-        } catch (ExecutionException e) {
+        } catch (Exception e) {
             LOGGER.error("从内存缓存中获取内容时发生异常，key:" + key, e);
             return defaultValue;
         }
     }
     public void put(K key, V value){
-        cache.put(key, value);
+    	getCache().put(key, value);
     }
 
     /**

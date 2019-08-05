@@ -29,6 +29,15 @@ public class SendVerificationCodeImpl implements SendVerificationCode{
 			return true;
 		}
 	}
+	
+	@Override
+	public String queryVerificationCode(String phone) {
+		CodeCache codeCache = CodeCache.getInstance();
+		String value = null;
+//			value = (String) codeCache.getValue(phone);
+		value = (String) codeCache.getValueOfDefault(phone, "没有对应的code");
+		return value;
+	}
 
 	
 }

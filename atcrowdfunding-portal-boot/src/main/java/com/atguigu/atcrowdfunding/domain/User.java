@@ -2,6 +2,8 @@ package com.atguigu.atcrowdfunding.domain;
 
 import lombok.Data;
 
+import java.util.Date;
+
 import javax.persistence.*;
 
 /**
@@ -17,18 +19,14 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
+    private Integer stuNo;
     private String name;
+    private Double price;
 
     private String url;
+    private Date birth;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", url='" + url + '\'' +
-                '}';
-    }
+    
 }

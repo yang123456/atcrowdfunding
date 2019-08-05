@@ -43,6 +43,7 @@ public class Demo01 {
 		Builder<String> builder = ImmutableSet.builder();
 		ImmutableSet<String> immutableSet1 = builder.add("RED").addAll(set).build();
 		System.out.println(immutableSet1);
+		System.out.println("======Multimap======");
 //		MultiMap：一种key可以重复的map，子类有ListMultimap和SetMultimap，对应的通过key分别得到list和set
 		Multimap<String, User> customersByType = ArrayListMultimap.create();
 		customersByType.put("abc", new User(1, "zhangsan", 12));
@@ -50,7 +51,7 @@ public class Demo01 {
 		List<User> collection = (List<User>) customersByType.get("abc");
 		System.out.println(customersByType.get("abc"));
 		System.out.println(customersByType.size());
-		System.out.println("============");
+		System.out.println("======Multiset======");
 //		Multiset：把重复的元素放入集合，并且可以统计重复元素的个数
 		Multiset<Integer> multiSet = HashMultiset.create();
 		multiSet.add(10);
@@ -59,7 +60,7 @@ public class Demo01 {
 		multiSet.add(40);
 		System.out.println(multiSet.count(30)); // 2
 		System.out.println(multiSet.size()); // 4
-		System.out.println("============");
+		System.out.println("======Table======");
 //		Table：相当于有两个key的map。
 		Table<Integer, Integer, User> personTable = HashBasedTable.create();
 		personTable.put(1, 20, new User(1, "zhangsan", 12));
@@ -68,7 +69,9 @@ public class Demo01 {
 		// 得到行集合
 		Map<Integer, User> rowMap = personTable.row(0);
 		int maxAge = Collections.max(rowMap.keySet());
-		System.out.println(personTable);
+		System.out.println("Table的打印:"+personTable);
+		System.out.println("Table的取值:"+personTable.get(1, 20));
+		System.out.println(maxAge);
 		System.out.println(rowMap);
 		System.out.println(rowMap.keySet());
 		System.out.println(maxAge);
@@ -80,7 +83,7 @@ public class Demo01 {
 		biMap.put(1, "hello");
 		biMap.put(2, "my");
 		int value = biMap.inverse().get("my");
-		System.out.println(value);
+		System.out.println("BiMap的取值:"+value);
 		System.out.println("======ClassToInstanceMap======");
 		// ClassToInstanceMap：有的时候，你的map的key并不是一种类型，他们是很多类型，你想通过映射他们得到这种类型，guava提供了ClassToInstanceMap满足了这个目的，除了继承自Map接口，
 //		ClassToInstaceMap提供了方法 T getInstance(Class<T>) 和 T putInstance(Class<T>, T),消除了强制类型转换。

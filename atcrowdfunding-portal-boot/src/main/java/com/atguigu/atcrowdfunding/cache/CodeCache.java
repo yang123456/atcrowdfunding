@@ -47,6 +47,7 @@ public class CodeCache extends BaseGuavaCache<String, Object> {
      */
     @Override
     protected Object getValueWhenExpired(String key) throws Exception {
+    	System.out.println("过期时调用");
         return getValue(key);
     }
 
