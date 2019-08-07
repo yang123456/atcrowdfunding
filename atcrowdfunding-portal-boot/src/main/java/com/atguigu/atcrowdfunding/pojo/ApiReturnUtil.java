@@ -13,5 +13,11 @@ public class ApiReturnUtil {
 		apiReturnObject.setMsg(msg);
 		return apiReturnObject;
 	}
+	
+	public static ApiReturnObject ok() {
+		ApiReturnObject apiReturnObject = new ApiReturnObject();
+		apiReturnObject.setMsg("ok");
+		return apiReturnObject;
+	}
 
 }

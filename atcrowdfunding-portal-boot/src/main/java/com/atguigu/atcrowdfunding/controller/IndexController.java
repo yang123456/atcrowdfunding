@@ -1,13 +1,7 @@
 package com.atguigu.atcrowdfunding.controller;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.atguigu.atcrowdfunding.domain.User;
-import com.atguigu.atcrowdfunding.jpa.UserRepository;
 
 import lombok.extern.slf4j.Slf4j;
 

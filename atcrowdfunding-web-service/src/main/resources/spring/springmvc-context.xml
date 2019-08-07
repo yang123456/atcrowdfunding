@@ -41,10 +41,10 @@
 		<property name="configLocation" value="classpath:velocity.properties" />
 			<property name="velocityProperties">
 			<props>
-				<prop key="userdirective">
+				<!-- <prop key="userdirective">
 					com.atguigu.atcrowdfunding.velocity.directive.DemoDirective,
 					com.atguigu.atcrowdfunding.velocity.directive.TestDirective
-				</prop>
+				</prop> -->
 				<prop key="input.encoding">UTF-8</prop>
 				<prop key="output.encoding">UTF-8</prop>
 			</props>

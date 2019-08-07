@@ -109,7 +109,7 @@ public class ExtClassPathAnnotationApplicationContext {
     }
 
     /**
-     * 查找包路径下面所有添加注解的类 @IocService
+     * 查找包路径下面所有添加注解的类 @ExtService
      * @return
      * @throws Exception
      */
@@ -133,7 +133,7 @@ public class ExtClassPathAnnotationApplicationContext {
         }
         return annoationClasses;
     }
-
+    
 
     /**
      * 首字母转换为小写

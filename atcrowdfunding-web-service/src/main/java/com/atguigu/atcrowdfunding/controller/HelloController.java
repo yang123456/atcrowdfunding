@@ -37,6 +37,8 @@ public class HelloController {
 
 	@RequestMapping("/direct")
 	public String directive(HttpServletRequest request, Model model) {
+		model.addAttribute("user", "'测试数据1'");
+		model.addAttribute("name", "测试数据2");
 		return "directive";
 	}
 }

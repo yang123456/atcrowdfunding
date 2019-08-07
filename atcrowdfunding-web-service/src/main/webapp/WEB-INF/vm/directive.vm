@@ -4,3 +4,15 @@
 #demo("参数1","参数2")
 <hr/>
 #test("Attribute1","Attribute2","Attribute3")
+
+<h2>单个名字: $user </h2>
+<h2>单个名字: $name </h2>
+<input type="button" onclick="javascript:abc('$!user');" value="点击" />
+<input type="button" onclick="javascript:abc('$!name');" value="点击" />
+
+<script>
+function abc(obj){
+	alert(obj);
+}
+</script>
+
