@@ -44,7 +44,15 @@ public class OKhttpController {
 		System.out.println("content中的内容>>>" + user);
 		return "success";
 	}
-
+	/**
+	 * 文件上传
+	 * @param file
+	 * @param userName
+	 * @param model
+	 * @param request
+	 * @return
+	 * @throws FileNotFoundException
+	 */
 	@PostMapping(value = "/fileUpload")
 	@ResponseBody
 	public String fileUpload(@RequestParam(value = "file") MultipartFile file, String userName, Model model,

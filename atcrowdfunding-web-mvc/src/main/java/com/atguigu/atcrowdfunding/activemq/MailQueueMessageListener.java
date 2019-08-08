@@ -25,7 +25,7 @@ import com.atguigu.atcrowdfunding.service.MailService;
  * @author bhz（Alienware）
  * @since 2014年7月2日
  */
-@Component
+//@Component
 public class MailQueueMessageListener implements SessionAwareMessageListener<Message> {
 
 	@Autowired

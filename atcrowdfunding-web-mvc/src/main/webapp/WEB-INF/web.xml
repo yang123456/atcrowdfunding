@@ -39,4 +39,14 @@
     <servlet-name>springmvc</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+  
+  
+<!--
+ 关于web.xml中的< url-pattern>作用对象
+1：作用与所有web资源：< url—pattern>/*< /url-pattern>。则客户端请求访问任意资源文件时都要经过过滤器过滤，通过则访问文件，否则拦截。
+2：作用于某一文件夹下所有文件：< url—pattern>/dir/*< /url-pattern>
+3：作用于某一种类型的文件：< url—pattern>.扩展名< /url-pattern>。比如< url—pattern>.jsp< /url-pattern>过滤所有对jsp文件的访问请求。
+4：作用于某一文件夹下某一类型文件：< url—pattern>/dir/*.扩展名< /url-pattern>
+ -->
+  
 </web-app>
