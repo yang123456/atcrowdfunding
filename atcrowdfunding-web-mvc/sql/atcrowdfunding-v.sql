@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50612
 File Encoding         : 65001
 
-Date: 2019-08-08 16:40:27
+Date: 2019-08-08 20:07:58
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -149,18 +149,29 @@ INSERT INTO `t_role_permission` VALUES ('1', '1', '1');
 DROP TABLE IF EXISTS `t_user`;
 CREATE TABLE `t_user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) DEFAULT NULL,
+  `username` varchar(20) DEFAULT NULL,
   `loginacct` varchar(20) DEFAULT NULL,
   `userpswd` varchar(20) DEFAULT NULL,
   `email` varchar(20) DEFAULT NULL,
   `createtime` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_user
 -- ----------------------------
-INSERT INTO `t_user` VALUES ('1', '张三', 'admin', '123', null, null);
+INSERT INTO `t_user` VALUES ('1', 'admin', 'admin', '123', '777777@qq.com', null);
+INSERT INTO `t_user` VALUES ('2', '张三1', 'zhangsan', '123456', '76321112432@qq.com', '2019-08-08 19:32:48');
+INSERT INTO `t_user` VALUES ('3', 'rwqerqwr', 'qr', '123456', '212424443@qq.com', '2019-08-08 19:52:02');
+INSERT INTO `t_user` VALUES ('4', '赵钱孙李', '1124', '12', '76321112432@qq.com', null);
+INSERT INTO `t_user` VALUES ('5', '周吴郑王', 'a', '24', '76321112432@qq.com', null);
+INSERT INTO `t_user` VALUES ('6', '冯陈褚卫', 'sv', '4124', '76321112432@qq.com', null);
+INSERT INTO `t_user` VALUES ('7', '蒋沈韩杨', 'vvert', '141', '76321112432@qq.com', null);
+INSERT INTO `t_user` VALUES ('8', '朱秦尤许', 'vvv', '2412', '76321112432@qq.com', null);
+INSERT INTO `t_user` VALUES ('9', '何吕施张', 're', '412', '76321112432@qq.com', null);
+INSERT INTO `t_user` VALUES ('10', '华', 'vv', '1241', '76321112432@qq.com', null);
+INSERT INTO `t_user` VALUES ('11', '金魏陶', 'v', '41241', '76321112432@qq.com', null);
+INSERT INTO `t_user` VALUES ('12', '孔曹严', 'v', '2', '76321112432@qq.com', null);
 
 -- ----------------------------
 -- Table structure for t_user_role

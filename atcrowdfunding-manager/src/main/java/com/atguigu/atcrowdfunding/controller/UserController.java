@@ -168,7 +168,7 @@ public class UserController {
 		try {
 			
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			user.setCreatetime(sdf.format(new Date()));
+	 		user.setCreatetime(sdf.format(new Date()));
 			user.setUserpswd("123456");
 			userService.insertUser(user);
 			result.setSuccess(true);
