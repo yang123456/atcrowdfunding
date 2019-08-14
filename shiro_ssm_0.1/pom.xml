@@ -7,16 +7,20 @@
 	<artifactId>shiro.demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-
 	<name>new.json</name>
-	<url>http://maven.apache.org</url>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<!-- <build> <plugins> <plugin> <groupId>org.apache.maven.plugins</groupId> 
+		<artifactId>maven-compiler-plugin</artifactId> <version>3.5.1</version> <configuration> 
+		<source>1.7</source> <target>1.7</target> </configuration> </plugin> </plugins> 
+		</build> -->
+
+
 	<build>
 		<plugins>
+			<!-- maven插件控制 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -26,31 +30,49 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<port>8080</port>
+					<path>/</path>
+					<!-- <path>/shiro</path> -->
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
+
+
+
 	<dependencies>
-		<!-- <dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.7</version>
-			<scope>test</scope>
-		</dependency> -->
+		<!-- <dependency> <groupId>junit</groupId> <artifactId>junit</artifactId> 
+			<version>4.7</version> <scope>test</scope> </dependency> -->
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient-cache</artifactId>
-			<version>4.2.5</version>
+			<version>4.5.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpmime</artifactId>
-			<version>4.2.5</version>
+			<version>4.5.2</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.apache.openejb</groupId>
 			<artifactId>javaee-api</artifactId>
-			<version>5.0-1</version>
+			<version>5.0-2</version>
 			<scope>provided</scope>
-		</dependency>
+		</dependency> -->
+		<dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+		<!-- <dependency> <groupId>javax</groupId> <artifactId>javaee-api</artifactId> 
+			<version>6.0</version> <scope>provided</scope> </dependency> -->
 		<dependency>
 			<groupId>javax.faces</groupId>
 			<artifactId>jsf-api</artifactId>
@@ -324,4 +346,7 @@
 
 
 	</dependencies>
+
+
+
 </project>

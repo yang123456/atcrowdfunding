@@ -51,7 +51,8 @@ public class UUserRole  implements Serializable{
     public void setRid(Long rid) {
         this.rid = rid;
     }
-    public String toString(){
+    @Override
+	public String toString(){
     	return JSONObject.fromObject(this).toString();
     }
 }

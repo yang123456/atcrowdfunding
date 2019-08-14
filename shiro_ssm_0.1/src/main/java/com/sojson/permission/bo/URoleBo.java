@@ -17,7 +17,7 @@ public class URoleBo extends URole implements Serializable{
 	private String marker;
 
 	public boolean isCheck(){
-		return StringUtils.equals(userId,marker);
+		return org.apache.commons.lang.StringUtils.equals(userId,marker);
 	}
 	public String getMarker() {
 		return marker;

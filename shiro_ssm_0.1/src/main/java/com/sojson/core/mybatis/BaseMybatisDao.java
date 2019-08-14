@@ -261,7 +261,7 @@ public class BaseMybatisDao<T> extends SqlSessionDaoSupport {
 	private PreparedStatement getPreparedStatement4Count(String sql,
 			List<ParameterMapping> parameterMappingList,
 			Map<String, Object> params, Connection conn) throws SQLException {
-		PreparedStatement ps = conn.prepareStatement(StringUtils.trim(sql));
+		PreparedStatement ps = conn.prepareStatement(org.apache.commons.lang.StringUtils.trim(sql));
 		int index = 1;
 		for (int i = 0; i < parameterMappingList.size(); i++) {
 			ps.setObject(index++, params.get(parameterMappingList.get(i)

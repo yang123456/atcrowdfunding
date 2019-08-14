@@ -99,8 +99,8 @@ public class BaseController {
 	@SuppressWarnings("unchecked")
 	protected Map<String, Object> prepareParams(Object obj, HttpServletRequest request) throws Exception {
 		if (request != null) {
-			String pageNoStr   = (String)request.getParameter(PARAM_PAGE_NO),
-				   pageSizeStr = (String)request.getParameter(pageSizeName);
+			String pageNoStr   = request.getParameter(PARAM_PAGE_NO),
+				   pageSizeStr = request.getParameter(pageSizeName);
 			if (StringUtils.isNotBlank(pageNoStr)) {
 				pageNo = Integer.parseInt(pageNoStr);
 			}
@@ -124,7 +124,7 @@ public class BaseController {
 			for (Iterator<Entry<String, Object>> it = entrySet.iterator(); it.hasNext(); ) {
 				Entry<String, Object> entry = it.next();
 				if (entry.getValue() != null) {
-					result.put(entry.getKey(), StringUtils.trimToEmpty((String)entry.getValue()));
+					result.put(entry.getKey(), org.apache.commons.lang.StringUtils.trimToEmpty((String)entry.getValue()));
 				}				
 			}
 		}

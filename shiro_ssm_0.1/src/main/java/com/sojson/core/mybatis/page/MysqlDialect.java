@@ -3,6 +3,7 @@ package com.sojson.core.mybatis.page;
 public class MysqlDialect implements Dialect {
 	protected static final String SQL_END_DELIMITER = ";";
 	
+	@Override
 	public String getLimitSqlString(String sql, int offset, int limit) {		
 		sql = sql.trim();
 		boolean isForUpdate = false;
@@ -27,6 +28,7 @@ public class MysqlDialect implements Dialect {
 		return pagingSelect.toString();
 	}
 
+	@Override
 	public String getCountSqlString(String sql) {
 		sql = trim(sql);
 		StringBuffer sb = new StringBuffer(sql.length() + 10);
@@ -36,6 +38,7 @@ public class MysqlDialect implements Dialect {
 		return sb.toString();
 	}
 
+	@Override
 	public boolean supportsLimit() {
 		return true;
 	}

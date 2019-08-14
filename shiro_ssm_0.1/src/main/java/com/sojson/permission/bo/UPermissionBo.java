@@ -23,7 +23,7 @@ public class UPermissionBo extends UPermission implements Serializable {
 	private String roleId;
 
 	public boolean isCheck(){
-		return StringUtils.equals(roleId,marker);
+		return org.apache.commons.lang.StringUtils.equals(roleId,marker);
 	}
 	public String getMarker() {
 		return marker;

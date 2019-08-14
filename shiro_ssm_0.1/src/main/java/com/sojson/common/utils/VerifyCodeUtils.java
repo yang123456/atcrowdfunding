@@ -89,7 +89,7 @@ public class VerifyCodeUtils{
      */
     public static boolean verifyCode(String code){
     	String v = (String)TokenManager.getVal2Session(V_CODE);
-    	return StringUtils.equals(v, StringUtils.lowerCase(code));
+    	return org.apache.commons.lang.StringUtils.equals(v, org.apache.commons.lang.StringUtils.lowerCase(code));
     }
     
     /** 
@@ -281,10 +281,10 @@ public class VerifyCodeUtils{
         int phase = random.nextInt(2);  
   
         for (int i = 0; i < h1; i++) {  
-            double d = (double) (period >> 1)  
+            double d = (period >> 1)  
                     * Math.sin((double) i / (double) period  
-                            + (6.2831853071795862D * (double) phase)  
-                            / (double) frames);  
+                            + (6.2831853071795862D * phase)  
+                            / frames);  
             g.copyArea(0, i, w1, 1, (int) d, 0);  
             if (borderGap) {  
                 g.setColor(color);  
@@ -303,10 +303,10 @@ public class VerifyCodeUtils{
         int frames = 20;  
         int phase = 7;  
         for (int i = 0; i < w1; i++) {  
-            double d = (double) (period >> 1)  
+            double d = (period >> 1)  
                     * Math.sin((double) i / (double) period  
-                            + (6.2831853071795862D * (double) phase)  
-                            / (double) frames);  
+                            + (6.2831853071795862D * phase)  
+                            / frames);  
             g.copyArea(i, 0, 1, h1, 0, (int) d);  
             if (borderGap) {  
                 g.setColor(color);  

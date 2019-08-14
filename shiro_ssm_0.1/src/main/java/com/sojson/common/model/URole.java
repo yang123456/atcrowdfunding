@@ -66,7 +66,8 @@ public class URole  implements Serializable{
 	public void setType(String type) {
         this.type = type;
     }
-    public String toString(){
+    @Override
+	public String toString(){
     	return JSONObject.fromObject(this).toString();
     }
 }

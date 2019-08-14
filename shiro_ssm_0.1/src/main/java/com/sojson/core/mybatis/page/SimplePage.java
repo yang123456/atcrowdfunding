@@ -49,18 +49,22 @@ public class SimplePage implements Paginable {
 		}
 	}
 
+	@Override
 	public int getPageNo() {
 		return pageNo;
 	}
 
+	@Override
 	public int getPageSize() {
 		return pageSize;
 	}
 
+	@Override
 	public int getTotalCount() {
 		return totalCount;
 	}
 
+	@Override
 	public int getTotalPage() {
 		int totalPage = totalCount / pageSize;
 		if (totalCount % pageSize != 0 || totalPage == 0) {
@@ -69,14 +73,17 @@ public class SimplePage implements Paginable {
 		return totalPage;
 	}
 
+	@Override
 	public boolean isFirstPage() {
 		return pageNo <= 1;
 	}
 
+	@Override
 	public boolean isLastPage() {
 		return pageNo >= getTotalPage();
 	}
 
+	@Override
 	public int getNextPage() {
 		if (isLastPage()) {
 			return pageNo;
@@ -85,6 +92,7 @@ public class SimplePage implements Paginable {
 		}
 	}
 
+	@Override
 	public int getPrePage() {
 		if (isFirstPage()) {
 			return pageNo;

@@ -176,7 +176,7 @@ public class DateUtil {
                                             int field, int amount) {
 
         try {
-            Calendar cal = GregorianCalendar.getInstance(TimeZone.getTimeZone(
+            Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(
                     "GMT"));
             cal.setTime(stringToDate(isoString, fmt, true));
             cal.add(field, amount);
@@ -201,7 +201,7 @@ public class DateUtil {
     public static final String roll(String isoString, String fmt, int field,
                                     boolean up) throws ParseException {
 
-        Calendar cal = GregorianCalendar.getInstance(TimeZone.getTimeZone(
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(
                 "GMT"));
         cal.setTime(stringToDate(isoString, fmt));
         cal.roll(field, up);
@@ -375,7 +375,7 @@ public class DateUtil {
      */
     public static Date dateIncreaseByDay(Date date, int days) {
 
-        Calendar cal = GregorianCalendar.getInstance(TimeZone.getTimeZone(
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(
                 "GMT"));
         cal.setTime(date);
         cal.add(Calendar.DATE, days);
@@ -391,7 +391,7 @@ public class DateUtil {
      */
     public static Date dateIncreaseByMonth(Date date, int mnt) {
 
-        Calendar cal = GregorianCalendar.getInstance(TimeZone.getTimeZone(
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(
                 "GMT"));
         cal.setTime(date);
         cal.add(Calendar.MONTH, mnt);
@@ -407,7 +407,7 @@ public class DateUtil {
      */
     public static Date dateIncreaseByYear(Date date, int mnt) {
 
-        Calendar cal = GregorianCalendar.getInstance(TimeZone.getTimeZone(
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(
                 "GMT"));
         cal.setTime(date);
         cal.add(Calendar.YEAR, mnt);

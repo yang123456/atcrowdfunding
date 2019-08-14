@@ -75,7 +75,7 @@ public class PermissionServiceImpl extends BaseMybatisDao<UPermissionMapper> imp
 			int successCount=0,errorCount=0;
 			String resultMsg ="删除%s条，失败%s条";
 			String[] idArray = new String[]{};
-			if(StringUtils.contains(ids, ",")){
+			if(org.apache.commons.lang.StringUtils.contains(ids, ",")){
 				idArray = ids.split(",");
 			}else{
 				idArray = new String[]{ids};
@@ -132,7 +132,7 @@ public class PermissionServiceImpl extends BaseMybatisDao<UPermissionMapper> imp
 				String[] idArray = null;
 				
 				//这里有的人习惯，直接ids.split(",") 都可以，我习惯这么写。清楚明了。
-				if(StringUtils.contains(ids, ",")){
+				if(org.apache.commons.lang.StringUtils.contains(ids, ",")){
 					idArray = ids.split(",");
 				}else{
 					idArray = new String[]{ids};

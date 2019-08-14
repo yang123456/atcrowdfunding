@@ -109,7 +109,8 @@ public class UUser implements Serializable{
     public void setLastLoginTime(Date lastLoginTime) {
         this.lastLoginTime = lastLoginTime;
     }
-    public String toString(){
+    @Override
+	public String toString(){
     	return JSONObject.fromObject(this).toString();
     }
 }

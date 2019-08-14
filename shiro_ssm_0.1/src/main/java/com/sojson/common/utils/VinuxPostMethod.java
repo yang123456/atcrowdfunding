@@ -156,7 +156,7 @@ public class VinuxPostMethod extends PostMethod {
 		for (Iterator<?> iter = parameter.keys(); iter.hasNext();) {
 			String key = (String) iter.next();
 			Object str = parameter.get(key);
-			String value = null == str ? "" : StringUtils.trimToEmpty(str
+			String value = null == str ? "" : org.apache.commons.lang.StringUtils.trimToEmpty(str
 					.toString());
 			this.addParameter(key, value);
 		}
@@ -182,7 +182,7 @@ public class VinuxPostMethod extends PostMethod {
 	public void setParameter(Map<String, Object> parameter) {
 		for (String key : parameter.keySet()) {
 			Object str = parameter.get(key);
-			String value = null == str ? "" : StringUtils.trimToEmpty(str.toString());
+			String value = null == str ? "" : org.apache.commons.lang.StringUtils.trimToEmpty(str.toString());
 			this.addParameter(key, value);
 		}
 	}

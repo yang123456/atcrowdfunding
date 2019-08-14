@@ -13,6 +13,7 @@ import com.sojson.core.shiro.token.manager.TokenManager;
 import com.sojson.core.statics.Constant;
 public class FreeMarkerViewExtend extends FreeMarkerView {
 	
+	@Override
 	protected void exposeHelpers(Map<String, Object> model, HttpServletRequest request){
 		
 		try {

@@ -57,6 +57,7 @@ public class UPermission implements Serializable {
 		this.name = name;
 	}
 
+	@Override
 	public String toString() {
 		return JSONObject.fromObject(this).toString();
 	}

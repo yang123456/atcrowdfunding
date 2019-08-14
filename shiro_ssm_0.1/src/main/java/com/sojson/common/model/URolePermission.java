@@ -51,7 +51,8 @@ public class URolePermission  implements Serializable{
     public void setPid(Long pid) {
         this.pid = pid;
     }
-    public String toString(){
+    @Override
+	public String toString(){
     	return JSONObject.fromObject(this).toString();
     }
 }
