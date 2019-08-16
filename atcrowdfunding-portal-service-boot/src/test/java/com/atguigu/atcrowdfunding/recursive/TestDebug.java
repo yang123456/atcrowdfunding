@@ -1,5 +1,8 @@
 package com.atguigu.atcrowdfunding.recursive;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TestDebug {
 	public static void main(String[] args) {
 		method1();
@@ -7,6 +10,10 @@ public class TestDebug {
 //		method3();
 //		method4();
 //		method5();
+		Map map=new HashMap();
+		map.put(null, "1");
+		Object object = map.get(null);
+		System.out.println(object);
 	}
 
 	private static void method5() {

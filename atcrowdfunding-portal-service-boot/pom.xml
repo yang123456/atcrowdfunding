@@ -76,6 +76,11 @@
 			<version>22.0</version>
 		</dependency>
 
+		<!-- <dependency>
+			<groupId>com.github.rholder</groupId>
+			<artifactId>guava-retrying</artifactId>
+			<version>1.0.7</version>
+		</dependency> -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

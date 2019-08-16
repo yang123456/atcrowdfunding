@@ -2,13 +2,15 @@ package com.atguigu.atcrowdfunding.copyProperties;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.BeanUtils;
 
 import com.google.common.collect.Lists;
 
 public class Test {
-	public static void main(String[] args) throws IllegalAccessException, InvocationTargetException {
+	public static void main(String[] args) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
 		PersonA pa=new PersonA(1, "aaa", 13, "2018-11", "上海");
 		PersonB pb=new PersonB();
 		BeanUtils.copyProperties(pa,pb);
@@ -28,5 +30,31 @@ public class Test {
 //		ArrayList<PersonA> palist = Lists.newArrayList();
 //		org.apache.commons.beanutils.BeanUtils.copyProperties(palist,pblist);
 //		System.out.println(palist);
+		
+		Map map=new HashMap();
+		map.put("id", "99");
+		map.put("name", "ggg");
+		map.put("age", 199);
+		org.apache.commons.beanutils.BeanUtils.populate(pa, map);//将map封装进javabean
+		System.out.println(pa);
+		
+		Map describe = org.apache.commons.beanutils.BeanUtils.describe(pa);//把Bean的属性值放入到一个Map里面。
+		System.out.println(describe);
+		
+		org.apache.commons.beanutils.BeanUtils.setProperty(pa, "name", "kaka");
+		System.out.println(pa);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 }
