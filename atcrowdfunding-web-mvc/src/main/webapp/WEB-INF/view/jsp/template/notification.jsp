@@ -1,14 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
+
 	
-<style>
-.jqx-notification-container .jqx-notification{
-	
-}
-</style>	
-	
-<!-- 通知  notification -->
+		<!-- 通知  notification -->
 <jqx-notification settings="timerNotification">
 	<div>
 		紧急,你只剩余 <span class="timer">30</span> 分钟左右!
@@ -34,13 +29,16 @@
 
 
 
-
+<!-- position:"top-right",zIndex:99999,browserBoundsOffset:5,notificationOffset:5,opacity:0.9,
+hoverOpacity:1,autoOpen:false,animationOpenDelay:400,animationCloseDelay:800 -->
 
 <script type="text/javascript">
 JQXElements.settings['timerNotification'] = {
     position: 'top-right',
-    width: 300,
+    width: 400,
     autoOpen: true,
+    browserBoundsOffset:60,
+    //notificationOffset:200,
     closeOnClick: false,
     autoClose: false,
     showCloseButton: false,
