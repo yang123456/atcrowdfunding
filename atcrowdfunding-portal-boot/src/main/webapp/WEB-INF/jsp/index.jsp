@@ -1,4 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 
+
+Welome to springboot with jsp and thymeleaf!<br/>
+<br>
+<a href="/jspindex">jsp</a>
+<br>
+<a href="/thymeleafindex.htm">thymeleaf</a>
 
 <h1>欢迎${user.username }光临!请选择你的操作:</h1><br>
     <ul>

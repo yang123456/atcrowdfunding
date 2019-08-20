@@ -35,7 +35,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 public class AdvertisementController {
 	@RequestMapping("/toFile")
 	public String index() {
-		return "advertisement/fileUpload";
+		return "advertisement/index";
 	}
 
 	/**
