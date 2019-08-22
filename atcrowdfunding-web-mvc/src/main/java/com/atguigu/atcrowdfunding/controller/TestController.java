@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +29,17 @@ public class TestController {
 	}
 	
 	@RequestMapping("/index")
-	public String index() {
+	public String index(HttpServletRequest request) {
+		System.out.println(request.getRequestURI());
+		System.out.println(request.getRequestURL());
+		System.out.println(request.getPathInfo());
+		System.out.println(request.getPathTranslated());
+		System.out.println(request.getRemoteAddr());
+		System.out.println(request.getScheme());
+		System.out.println(request.getServletPath());
+		System.out.println(request.getParameterMap());
+		System.out.println(request.getParameter("aa"));
+		System.out.println(request.getParameterValues("bb"));
 		return "index";
 	}
 	

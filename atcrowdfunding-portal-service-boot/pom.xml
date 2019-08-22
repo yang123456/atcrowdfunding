@@ -76,11 +76,8 @@
 			<version>22.0</version>
 		</dependency>
 
-		<!-- <dependency>
-			<groupId>com.github.rholder</groupId>
-			<artifactId>guava-retrying</artifactId>
-			<version>1.0.7</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>com.github.rholder</groupId> <artifactId>guava-retrying</artifactId> 
+			<version>1.0.7</version> </dependency> -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -300,6 +297,22 @@
 			<artifactId>lombok</artifactId>
 			<version>1.16.20</version>
 		</dependency>
+		<!-- webservice -->
+		<!-- <dependency> <groupId>org.apache.cxf</groupId> <artifactId>cxf-spring-boot-starter-jaxws</artifactId> 
+			<version>3.1.12</version> </dependency> -->
+		<!-- apache-cxf -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>3.1.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>3.1.6</version>
+		</dependency>
+		<!-- webservice -->
+
 		<!--war包部署需要 -->
 		<!--<dependency> -->
 		<!--<groupId>org.springframework.boot</groupId> -->

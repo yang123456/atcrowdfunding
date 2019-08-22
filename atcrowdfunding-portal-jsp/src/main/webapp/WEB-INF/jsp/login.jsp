@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-
+	pageEncoding="UTF-8"%>
 
 <h1>欢迎登录!${user.username }</h1>
 <form action="${pageContext.request.contextPath }/loginUser"
