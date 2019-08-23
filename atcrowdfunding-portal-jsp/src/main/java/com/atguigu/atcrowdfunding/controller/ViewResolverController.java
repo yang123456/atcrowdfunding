@@ -41,6 +41,11 @@ public class ViewResolverController {
 		return "vue/vue";
 		
 	}
+	@RequestMapping(value = { "/vue2" })
+	public String vue2(Model model) {
+		return "vue/vue2";
+		
+	}
 
 	@PreDestroy
 	public void destroy() {

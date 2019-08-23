@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+<script src="//cdn.bootcss.com/jqcloud/1.0.4/jqcloud-1.0.4.min.js"></script>
+<script src="/js/rotate.js"></script>
+<link href="//cdn.bootcss.com/jqcloud/1.0.4/jqcloud.min.css"  rel="stylesheet">
+<style type="text/css">
+.custom-class{
+	border:2px solid red;
+
+}
+</style>
+</head>
+<body>
+
+
+	<h1>Hello VUE2</h1>
+	<div id="cloud" style="width: 550px; height: 350px;border: 1px solid red;" ></div>
+
+
+
+<!-- 
+至少需要指定每一项的text和weight，jqcloud会根据所有文字的权重，计算出合适的百分比。格式详见代码
+text：展现的文字
+weight：文字的权重 
+-->
+	<script type="text/javascript">
+		var array = [ 
+		{
+			text : "标签1",
+			weight : 13,
+			link: {href: "http://ifxoxo.com/jquery-jqcloud.html", target: "_blank"} ,
+			html: {title: "My Title", "class": "custom-class"},
+			handlers: {
+				click: function(){
+					alert("from –ifxoxo.com")
+				}
+			},
+			afterWordRender:function(){
+				console.log( "标签1");
+			}
+		}, 
+		{
+			text : "标签2",
+			weight : 10.5
+		},
+		{
+			text : "日常",
+			weight : 9.4
+		},
+		{
+			text : "java",
+			weight : 9.4
+		},
+		{
+			text : "php",
+			weight : 9.4
+		},
+		{
+			text : "css",
+			weight : 9.4
+		} 
+		];
+		$("#cloud").jQCloud(array)
+	</script>
+
+</body>
+</html>
