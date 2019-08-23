@@ -55,7 +55,7 @@ public class ViewResolverConfiguration extends WebMvcConfigurerAdapter {
            ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
            viewResolver.setTemplateEngine(templateEngine());
            viewResolver.setCharacterEncoding("utf-8");
-           viewResolver.setViewNames(new String[]{"thymeleaf/*"});
+           viewResolver.setViewNames(new String[]{"thymeleaf/*","vue/"});
            viewResolver.setOrder(1);
            return viewResolver;
        }

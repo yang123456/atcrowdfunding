@@ -35,6 +35,12 @@ public class ViewResolverController {
 		return "thymeleaf/word";
 
 	}
+	
+	@RequestMapping(value = { "/vue" })
+	public String vue(Model model) {
+		return "vue/vue";
+		
+	}
 
 	@PreDestroy
 	public void destroy() {
