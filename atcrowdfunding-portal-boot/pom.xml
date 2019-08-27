@@ -357,6 +357,25 @@
         </dependency>
 		<!-- webservice -->
 		
+		<!--需要从本地导入-->
+		<!--二维码-->
+		<dependency>
+			<groupId>QRCode</groupId>
+			<artifactId>QRCode</artifactId>
+			<version>3.0</version>
+		</dependency>
+		<dependency>
+    		<groupId>com.google.zxing</groupId>
+    		<artifactId>core</artifactId>
+    		<version>3.3.0</version>
+		</dependency>
+		<dependency>  
+            <groupId>com.google.zxing</groupId>  
+            <artifactId>javase</artifactId>  
+            <version>3.3.0</version>  
+        </dependency>  
+		<!--二维码-->
+		
 		<!--war包部署需要 -->
 		<!--<dependency> -->
 		<!--<groupId>org.springframework.boot</groupId> -->
