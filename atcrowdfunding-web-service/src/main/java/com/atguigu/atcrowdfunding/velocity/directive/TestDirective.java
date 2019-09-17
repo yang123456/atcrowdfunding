@@ -41,7 +41,7 @@ public class TestDirective extends Directive {
 //        sn = (SimpleNode) node.jjtGetChild(1);
 //        Serializable s = (Serializable) sn.value(context);
 // 
-//        sn = (SimpleNode) node.jjtGetChild(2);
+//        sn = (SimpleNode)  node.jjtGetChild(2);
 //        Object data = sn.value(context);
         Map map = new HashMap();
         List<String> strings = new ArrayList<String>();

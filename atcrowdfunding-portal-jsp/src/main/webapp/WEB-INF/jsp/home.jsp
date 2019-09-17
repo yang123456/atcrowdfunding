@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
 <script src="http://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
 <h1>Home page</h1>
@@ -12,7 +13,7 @@
 	 <input type="button" value="replace3" onclick="replace3();" />
 </div>
 
-
+错误信息:${error }
 
 
 <script type="text/javascript">

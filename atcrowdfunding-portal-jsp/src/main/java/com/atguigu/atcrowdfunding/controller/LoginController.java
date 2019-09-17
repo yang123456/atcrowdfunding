@@ -1,6 +1,7 @@
 package com.atguigu.atcrowdfunding.controller;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -69,7 +71,11 @@ public class LoginController {
 	}
 
 	@RequestMapping("/home")
-	public String home(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+	public String home(@ModelAttribute("error") String error,RedirectAttributes redirectAttributes,HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> flashAttributes = (Map<String, Object>) redirectAttributes.getFlashAttributes();
+		String object = (String)flashAttributes.get("error");
+		System.out.println("flashAttributes error>>"+object);
+		System.out.println("@ModelAttribute error>>"+error);
 		return "jsp/home";
 	}
 
