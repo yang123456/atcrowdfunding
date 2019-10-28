@@ -1,8 +1,12 @@
 package com.atguigu.atcrowdfunding.demo;
 
+import com.alibaba.fastjson.JSON;
+
 public class Test {
 	public static void main(String[] args) {
-		shuixianhua(275);
+//		shuixianhua(275);
+		String jsonString = JSON.toJSONString("");
+		System.out.println(jsonString);
 	}
 
 	public static boolean shuixianhua(int x) {

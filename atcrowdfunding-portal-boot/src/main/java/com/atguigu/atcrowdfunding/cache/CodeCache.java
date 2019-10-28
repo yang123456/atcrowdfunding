@@ -1,7 +1,9 @@
 package com.atguigu.atcrowdfunding.cache;
 
-
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
+
+import com.google.common.collect.Lists;
 
 /**
  * @author 潘畅
@@ -9,46 +11,58 @@ import java.util.concurrent.TimeUnit;
  */
 public class CodeCache extends BaseGuavaCache<String, Object> {
 
-    private static CodeCache codeCache;
+	private static CodeCache codeCache;
 
-    /**
-     * 单例模式
-     */
-    public static CodeCache getInstance() {
-        if (codeCache == null){
-            synchronized (CodeCache.class){
-                if (codeCache == null){
-                    codeCache = new CodeCache();
-                }
-            }
-        }
-        return codeCache;
-    }
+	/**
+	 * 单例模式
+	 */
+	public static CodeCache getInstance() {
+		if (codeCache == null) {
+			synchronized (CodeCache.class) {
+				if (codeCache == null) {
+					codeCache = new CodeCache();
+				}
+			}
+		}
+		return codeCache;
+	}
 
-    /**
-     * 在这里初始化必要参数（比如过期时间，定期刷新时间，缓存最大条数等）
-     */
-    private CodeCache() {
-        //初始化过期时间
-        this.setExpirationDuration(1);
-        this.setExpirationTimeUnit(TimeUnit.MINUTES);
-        //不刷新缓存
-        this.setRefreshDuration(-1);
-        this.setMaxSize(1000);
-    }
+	/**
+	 * 在这里初始化必要参数（比如过期时间，定期刷新时间，缓存最大条数等）
+	 */
+	private CodeCache() {
+		this.setExpirationDuration(1).setExpirationTimeUnit(TimeUnit.MINUTES)//1分钟过期
+				.setRefreshDuration(-1) // 不刷新缓存
+				.setMaxSize(1000);
+	}
 
-    @Override
-    public void loadValueWhenStarted() {
+	@Override
+	public void loadValueWhenStarted() {
+		System.out.println("======CodeCache========loadValueWhenStarted=====");
+	}
 
-    }
+	/**
+	 * 缓存中不存在或者过期会调用
+	 */
+	@Override
+	protected Object getValueWhenExpired(String key) throws Exception {
+		System.out.println("======CodeCache========getValueWhenExpired=====");
+		/**
+		 * 缓存没找到，取数据库或者其他地方找
+		 */
+		Object data = getData(key);
+		return data;
+	}
 
-    /**
-     * 关于这个方法，暂时我也不太清楚，只能暂时先调用“getValue(key)”方法
-     */
-    @Override
-    protected Object getValueWhenExpired(String key) throws Exception {
-    	System.out.println("过期时调用");
-        return getValue(key);
-    }
+	/**
+	 * 查询数据库
+	 */
+	public Object getData(String key) {
+		ArrayList<Object> list = Lists.newArrayList();
+		list.add("1");
+		list.add(100);
+		list.add("zhan");
+		return list;
+	}
 
 }

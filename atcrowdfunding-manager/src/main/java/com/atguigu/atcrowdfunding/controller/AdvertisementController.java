@@ -33,7 +33,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 @Controller
 @RequestMapping("/advertisement")
 public class AdvertisementController {
-	@RequestMapping("/toFile")
+	@RequestMapping("/index")
 	public String index() {
 		return "advertisement/index";
 	}

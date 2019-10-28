@@ -50,4 +50,12 @@ public class TestController {
 		map.put("username", "zhangsan");
 		return map;
 	}
+	
+	@ResponseBody
+	@RequestMapping("/test01")
+	public Object test01(String keyword) {
+		Map map = new HashMap();
+		map.put("username", "zhangsan");
+		return map;
+	}
 }

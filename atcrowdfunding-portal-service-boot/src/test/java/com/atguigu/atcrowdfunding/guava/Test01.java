@@ -10,19 +10,28 @@ import com.google.common.collect.Collections2;
 import com.google.common.collect.Lists;
 
 public class Test01 {
-public static void main(String[] args) {
-	ArrayList<User> personList = Lists.newArrayList();
-	personList.add(new User(1, "zhangsan", 12));
-	personList.add(new User(1, "zhangsan", 13));
-	personList.add(new User(1, "zhangsan", 142));
-	personList.add(new User(1, "lsi", 12));
-	Collection<User> filter =Collections2.filter(personList, new Predicate<User>() {
-		@Override
-		public boolean apply(User input) {
-			return input.getAge() == 12;
+	public static void main(String[] args) {
+		ArrayList<User> personList = Lists.newArrayList();
+		personList.add(new User(1, "zhangsan", 12));
+		personList.add(new User(1, "zhangsan", 13));
+		personList.add(new User(1, "zhangsan", 142));
+		personList.add(new User(1, "lsi", 12));
+		Collection<User> filter = Collections2.filter(personList, new Predicate<User>() {
+			@Override
+			public boolean apply(User input) {
+				return input.getAge() == 12;
+			}
+		});
+		ArrayList<User> newArrayList = Lists.newArrayList(filter);
+		System.out.println(newArrayList);
+		ArrayList<User> aa = Lists.newArrayList();
+		for (User u:aa ) {
+			System.out.println(u);
 		}
-	});
-	ArrayList<User> newArrayList = Lists.newArrayList(filter);
-	System.out.println(newArrayList);
-}
+		
+		if(!"0".equals("1") && 1<0) {
+			System.out.println("dddd");
+		}
+		
+	}
 }

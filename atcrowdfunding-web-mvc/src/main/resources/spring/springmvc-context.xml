@@ -9,6 +9,8 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <context:component-scan base-package="com.atguigu.*" use-default-filters="false" >
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <!-- 将全局异常也包括进来 -->
+        <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
     
     <mvc:default-servlet-handler/>

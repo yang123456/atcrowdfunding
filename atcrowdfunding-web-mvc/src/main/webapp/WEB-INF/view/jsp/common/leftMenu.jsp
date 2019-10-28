@@ -62,6 +62,18 @@
 							<li style="height:30px;">
 								<a href="tag.html"><i class="glyphicon glyphicon-tags"></i> 项目标签</a> 
 							</li>
+							<li style="height:30px;">
+								<a href="${APP_PATH}/upload/index"><i class="glyphicon glyphicon-tags"></i> 图片裁剪</a> 
+							</li>
+							<li style="height:30px;">
+								<a href="${APP_PATH}/editorWeb/edit/1"><i class="glyphicon glyphicon-tags"></i> markdown工具</a> 
+							</li>
+							<li style="height:30px;">
+								<a href="${APP_PATH}/echarts/index"><i class="glyphicon glyphicon-tags"></i> echarts图表</a> 
+							</li>
+							<li style="height:30px;">
+								<a href="${APP_PATH}/lottery/index"><i class="glyphicon glyphicon-tags"></i>转盘抽奖</a> 
+							</li>
 						</ul>
 					</li>
 					<li class="list-group-item tree-closed" >

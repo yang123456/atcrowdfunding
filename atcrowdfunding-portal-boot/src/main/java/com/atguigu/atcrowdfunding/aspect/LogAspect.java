@@ -136,9 +136,9 @@ public class LogAspect {
     /**
      * 后置异常通知
      */
-    @AfterThrowing("operationLog()")
-    public void throwss(JoinPoint jp){
-        System.out.println("方法异常时执行.....");
+    @AfterThrowing(pointcut = "operationLog()",throwing="e")
+    public void throwss(JoinPoint jp,Throwable e){
+        System.out.println("方法异常时执行....."+e.getMessage());
     }
 
 
