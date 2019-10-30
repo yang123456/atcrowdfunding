@@ -1,0 +1,169 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hello Notification</title>
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
+<script src="https://cdn.bootcss.com/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdn.bootcss.com/stomp.js/2.3.3/stomp.min.js"></script>
+
+<script type="text/javascript" th:src="@{/js/notification/jqxcore.js}"></script>
+<script type="text/javascript" th:src="@{/js/notification/jqxnotification.js}"></script>
+<script type="text/javascript" th:src="@{/js/notification/jqxbuttons.js}"></script>
+<link rel="stylesheet" th:href="@{/css/jqx.base.css}" type="text/css" />
+  
+  
+<script type="text/javascript">
+	window.addEventListener('load', function() {
+		// 首先，让我们检查我们是否有权限发出通知
+		// 如果没有，我们就请求获得权限
+		if (window.Notification && Notification.permission !== "granted") {
+			Notification.requestPermission(function(status) {
+				if (Notification.permission !== status) {
+					Notification.permission = status;
+				}
+			});
+		}
+	})
+	
+ 	$(document).ready(function () {
+          $("#messageNotification").jqxNotification({
+              width: 250, 
+              position: "top-right", 
+              opacity: 0.9,
+              autoOpen: false, 
+              animationOpenDelay: 800,
+              autoClose: true, 
+              autoCloseDelay: 4000, 
+              template: "info"
+          });
+          
+          //初始化按钮
+          $("#openBtn, #closeBtn").jqxButton({ width: 230, height: 30 });
+     });
+	
+	var msg="未接收到推送消息";
+	
+	openWebSocket();//开启websocket
+	
+
+	// 如果用户同意就创建一个通知
+	if (window.Notification && Notification.permission === "granted") {//浏览器默认的通知栏(启用)
+		webnotify(msg)
+	}
+	// 如果用户没有选择是否显示通知
+	// 注：因为在 Chrome 中我们无法确定 permission 属性是否有值，因此
+	// 检查该属性的值是否是 "default" 是不安全的。
+	else if (window.Notification && Notification.permission !== "denied") {//浏览器默认的通知栏(禁用)
+		Notification.requestPermission(function(status) {
+			if (Notification.permission !== status) {
+				Notification.permission = status;
+			}
+			if (status === "granted") {// 如果用户同意了
+				webnotify(msg)
+			}else {// 否则，我们可以让步的使用常规模态的 alert
+				mynotify(msg)
+			}
+		});
+	}
+	// 如果用户拒绝接受通知
+	else {
+		// 我们可以让步的使用常规模态的 alert
+		mynotify(msg)
+	}
+	
+	var websocket;
+	//关闭连接
+	function closeWebSocket() {
+		websocket.close();
+	}
+	//建立连接
+	function openWebSocket() {
+		var ip = window.location.host;
+		if ('WebSocket' in window) {
+			//websocket = new WebSocket("ws://" + ip + "/xxx/webSocketServer");
+			websocket = new WebSocket("ws://" + ip + "/webSocketServer");
+		} else if ('MozWebSocket' in window) {
+			//websocket = new MozWebSocket("ws://" + ip + "/xxx/webSocketServer");
+			websocket = new MozWebSocket("ws://" + ip + "/webSocketServer");
+		} else {
+			//websocket = new SockJS("http://" + ip + "/xxx/sockjs/webSocketServer");
+			websocket = new SockJS("http://" + ip + "/sockjs/webSocketServer");
+		}
+		websocket.onopen = function(evnt) {
+			console.info("websocket已连接")
+		};
+		websocket.onmessage = function(evnt) {
+			console.info("后台传来消息",evnt)
+			msg=evnt.data;
+			//发送桌面消息(这里是发送消息相关代码)
+			//webnotify(msg)
+			mynotify(msg)
+		};
+		websocket.onerror = function(evnt) {
+			console.info("websocket连接出错")
+		};
+		websocket.onclose = function(evnt) {
+			console.info("websocket连接已关闭")
+
+		}
+	}
+	
+	function webnotify(msg) {
+		var notify = new Notification(
+				"通知",
+				{
+					dir : 'auto',
+					lang : 'zh-CN',
+					icon : 'http://img3.imgtn.bdimg.com/it/u=3869552933,4106171276&fm=26&gp=0.jpg',//通知的缩略图,//icon 支持ico、png、jpg、jpeg格式
+					body : msg //通知的具体内容
+				});
+		notify.onclick = function() {
+			//如果通知消息被点击,通知窗口将被激活
+			window.focus();
+			window.open("http://www.baidu.com/");//打开指定url
+			notify.close();
+		}, notify.onerror = function() {
+			console.log("HTML5桌面消息出错！！！");
+		};
+		notify.onshow = function() {
+			setTimeout(function() {
+				notify.close();
+			}, 20000)
+		};
+		notify.onclose = function() {
+			console.log("HTML5桌面消息关闭！！！");
+		};
+	}
+	//自定义消息通知框
+	function mynotify(msg) {
+		$("#messageNotification div.one").html("");
+        $("#messageNotification div.one").html(msg);
+        $("#messageNotification").jqxNotification("open");
+	}
+</script>
+</head>
+<body>
+
+	<!--通知模态框-->
+    <div id="messageNotification">
+        <div class="one">
+            Welcome to our website.
+        </div>
+    </div>
+    
+    
+	<noscript>
+		<h2 style="color: #ff0000">Seems your browser doesn't support
+			Javascript! Websocket relies on Javascript being enabled. Please
+			enable Javascript and reload this page!</h2>
+	</noscript>
+<!-- 	<button onclick="closeWebSocket()">Close</button>
+	<button onclick="openWebSocket()">Open</button> -->
+	<button id="openBtn" onclick="openWebSocket()"> Open</button>
+    <button id="closeBtn" onclick="closeWebSocket()">Close</button>
+        
+	<img alt="fff"
+		src="http://img3.imgtn.bdimg.com/it/u=3869552933,4106171276&fm=26&gp=0.jpg">fff
+
+</body>
+</html>

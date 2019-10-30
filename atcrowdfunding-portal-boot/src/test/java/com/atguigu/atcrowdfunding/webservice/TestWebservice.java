@@ -13,6 +13,7 @@ import com.atguigu.atcrowdfunding.webservice.a.IHello;
  *                             2：动态调用webservice
  * @author Jerry
  * @date:2018年4月10日下午4:14:07
+ * @class com.atguigu.atcrowdfunding.webservice.CxfConfig
  */
 public class TestWebservice {
 

@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.atguigu.atcrowdfunding.dubbo.CityDubboConsumerService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Controller
 @RequestMapping("/test")
+@Slf4j
 public class HelloController {
 	
 	@Autowired
@@ -18,6 +21,7 @@ public class HelloController {
     @RequestMapping("/{name}")
     @ResponseBody
     public String hello(@PathVariable("name")String name) {
+    	log.info("========HelloController==========="+name);
         return "Hello "+name;
     }
     

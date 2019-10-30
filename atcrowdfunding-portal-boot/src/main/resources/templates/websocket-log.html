@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WebSocket Logger</title>
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
+<script src="https://cdn.bootcss.com/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdn.bootcss.com/stomp.js/2.3.3/stomp.min.js"></script>
+</head>
+<body>
+	<label>请输入您的姓名</label>
+	<input type="text" id="name" />
+	<button id="send" onclick="sendName();">发送</button>
+
+	<input type="button" onclick="openSocket();" value="开启日志" />
+	<input type="button" onclick="closeSocket();" value="关闭日志" />
+	<div id="log-container"
+		style="height: 450px; overflow-y: scroll; padding: 10px;">
+		<div></div>
+	</div>
+
+
+	<script type="text/javascript">
+		var stompClient = null;
+		$(function() {
+			openSocket();
+		});
+		function openSocket() {
+			if (stompClient == null) {
+				console.log("connected");
+				//			var socket = new SockJS('http://localhost:8081/endpointAric?token=kl');
+				var socket = new SockJS('/endpointAric');
+				stompClient = Stomp.over(socket);
+				stompClient.connect({//连接WebSocket服务端
+				//token : "kl"
+				}, function(frame) {
+					//通过stompClient.subscribe订阅/topic/pullLogger 目标(destination)发送的消息,这个是在控制器的@SentTo中定义的
+					stompClient.subscribe('/topic/pullLogger', function(event) {//
+						var content = JSON.parse(event.body);
+						//console.log("=============", content)
+						$("#log-container div").append(
+								content.timestamp + " " + content.level
+										+ " --- [" + content.threadName + "] "
+										+ content.className + "   :"
+										+ content.body).append("<br/>");
+						$("#log-container").scrollTop(
+								$("#log-container div").height()
+										- $("#log-container").height());
+					}/* , {
+														token : "kltoen"
+													} */);
+				});
+			}
+		}
+		function closeSocket() {
+			if (stompClient != null) {
+				stompClient.disconnect();
+				stompClient = null;
+			}
+			console.log("Disconnected");
+		}
+
+		function sendName() {
+			var name = $("#name").val();
+			//通过stompClient.send向/sayName 目标(destination)发送消息,这个是在控制器的@MessageMapping中定义的
+			stompClient.send("/sayName", {}, JSON.stringify({
+				'name' : name
+			}));
+		}
+	</script>
+
+
+</body>
+</html>
