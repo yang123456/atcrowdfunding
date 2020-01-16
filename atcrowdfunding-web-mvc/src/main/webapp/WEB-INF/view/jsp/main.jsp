@@ -8,9 +8,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="${APP_PATH}/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="${APP_PATH}/css/font-awesome.min.css">
+	<link rel="stylesheet" href="${APP_PATH}/css/main.css">
+<!-- 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/main.css"> -->
 	<style>
 	.tree li {
         list-style-type: none;
@@ -94,9 +97,12 @@
         </div>
       </div>
     </div>
-    <script src="jquery/jquery-2.1.1.min.js"></script>
+    <script src="${APP_PATH}/jquery/jquery-2.1.1.min.js"></script>
+    <script src="${APP_PATH}/bootstrap/js/bootstrap.min.js"></script>
+	<script src="${APP_PATH}/script/docs.min.js"></script>
+<!--     <script src="jquery/jquery-2.1.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-	<script src="script/docs.min.js"></script>
+	<script src="script/docs.min.js"></script> -->
         <script type="text/javascript">
             $(function () {
 			    $(".list-group-item").click(function(){

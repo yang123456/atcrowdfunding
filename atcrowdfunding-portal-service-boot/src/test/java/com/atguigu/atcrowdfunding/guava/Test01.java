@@ -19,19 +19,25 @@ public class Test01 {
 		Collection<User> filter = Collections2.filter(personList, new Predicate<User>() {
 			@Override
 			public boolean apply(User input) {
-				return input.getAge() == 12;
+				if(input.getAge() == 12) {
+					System.out.println("======1==");
+					return true;
+				}
+				System.out.println("======2==");
+				return false;
 			}
 		});
+		System.out.println(personList);
 		ArrayList<User> newArrayList = Lists.newArrayList(filter);
 		System.out.println(newArrayList);
-		ArrayList<User> aa = Lists.newArrayList();
-		for (User u:aa ) {
-			System.out.println(u);
-		}
-		
-		if(!"0".equals("1") && 1<0) {
-			System.out.println("dddd");
-		}
+//		ArrayList<User> aa = Lists.newArrayList();
+//		for (User u:aa ) {
+//			System.out.println(u);
+//		}
+//		
+//		if(!"0".equals("1") && 1<0) {
+//			System.out.println("dddd");
+//		}
 		
 	}
 }

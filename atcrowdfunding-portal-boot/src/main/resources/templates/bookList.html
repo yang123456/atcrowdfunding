@@ -30,6 +30,7 @@
         </thead>
         <tbody>
         <tr th:each="book : ${bookList}">
+            <td><input type="checkbox" class="mycheck" onclick="saveCheck(this)"></td>
             <th scope="row" th:text="${book.id}"></th>
             <td><a th:href="@{/book/update/{bookId}(bookId=${book.id})}" th:text="${book.name}"></a></td>
             <td th:text="${book.writer}"></td>
@@ -42,6 +43,57 @@
     <div><a class="btn btn-primary" href="/book/create" role="button">新增书籍</a></div>
 </div>
 
+
+<script type="text/javascript">
+$(function(){
+	var vel=$.cookie("ck_id");
+	var arr=vel.substring(0,vel.lastIndexOf(",")).split(",");
+	$(".mycheck").each(function(i,item){
+		var itemVal=$(item).val();
+		if(arr.includes(itemVal)){
+			item.checked=true;
+		}
+		
+	})
+	
+	
+})
+Array.prototype.indexOf(val){
+	for(var i=0;i<this.length;i++){
+		if(this[i]==val){
+			return i;
+		}
+	}
+	return -1;
+}
+Array.prototype.remove(val){
+	var index=this.indexOf(val);
+	if(index>-1){
+		this.splice(index,1);
+	}
+}
+Array.prototype.unique(arr){
+	return arr.filter(function(item,index,arr){
+		return arr.indexOf(item,0)==index;
+	});
+}
+
+function saveCheck(obj){
+	if($(obj).is(":checked")){
+		arr.push(obj.value);
+	}else{
+		arr.remove(obj.value);
+		var cookieValArr=$.cookie("ck_id").split(",");
+		cookieValArr=cookieValArr.unique(cookieValArr);
+		cookieValArr.remove(obj.value);
+		$.cookie("ck_id",cookieValArr);
+	}
+	arr=arr.concat($.cookie("ck_id").split(","));
+	$.cookie("ck_id",arr);
+}
+
+
+</script>
 
 </body>
 </html>

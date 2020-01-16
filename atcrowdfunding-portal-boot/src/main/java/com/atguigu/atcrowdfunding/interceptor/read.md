@@ -9,3 +9,11 @@ demo地址：https://github.com/luomouren/sbDemo
 4.添加自定义注解CurrentUser(将accessToken转换成CurrentUser)
 5.SpringBoot配置拦截器
 6.测试
+
+
+
+
+
+
+百战商城
+https://blog.csdn.net/qq_43371556/article/details/101095879

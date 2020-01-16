@@ -50,6 +50,17 @@ public class DispatcherController {
 		return "main";
 	}
 	
+	@RequestMapping(value="/a/b")
+	public String abc(String name) {
+		if("1".equals(name)) {
+			System.out.println("------1--------");
+//			return "redirect:b";//正确
+			return "redirect:/a/b";//正确
+		}
+		System.out.println("------2--------");
+		return "main";
+	}
+	
 	@ResponseBody
 	@RequestMapping("/doAJAXLogin")
 	public Object doAJAXLogin(User user, HttpSession session) {

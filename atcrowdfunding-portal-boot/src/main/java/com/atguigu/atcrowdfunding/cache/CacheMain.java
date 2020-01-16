@@ -12,5 +12,13 @@ public class CacheMain {
 //		Object value = codeCache.getValue("name");
 		Object value = codeCache.getValueOfDefault("name1", "默认值");
 		System.out.println(value);
+		
+		
+		System.out.println(false && 1>5);
+		System.out.println(false && 5>1);
+		System.out.println(true && 1>5);
+		System.out.println(true && 5>1);
+		boolean a="2".equals("1");
+		System.out.println(a);
 	}
 }

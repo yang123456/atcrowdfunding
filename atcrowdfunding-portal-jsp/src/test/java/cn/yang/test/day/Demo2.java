@@ -1,5 +1,7 @@
 package cn.yang.test.day;
 
+import com.alibaba.fastjson.JSONObject;
+
 public class Demo2 {
 	private static String name = "123";
 	static {
@@ -13,6 +15,12 @@ public class Demo2 {
 		char y='2';
 		a |= x ^ y;
 		System.out.println(a);
+		
+		
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("scheduler", 123);
+		jsonObject.put("scheduler", 456);
+		System.out.println( "alibaba: " + jsonObject );//alibaba: {"scheduler":456}
 	}
 
 }

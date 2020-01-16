@@ -14,8 +14,10 @@ import com.google.common.util.concurrent.MoreExecutors;
 
 public class ListenableFutureTest {
 	// 与java原始的future处理总时间是一样的，但是是非阻塞的，可以再第一个任务很慢的情况下，先返回后面不慢的任务的结果。
+//	private static ListeningExecutorService service = MoreExecutors
+//			.listeningDecorator(Executors.newFixedThreadPool(20));
 	private static ListeningExecutorService service = MoreExecutors
-			.listeningDecorator(Executors.newFixedThreadPool(20));
+			.listeningDecorator(Executors.newCachedThreadPool());
 
 	public static void main(String[] args) {
 
@@ -29,6 +31,14 @@ public class ListenableFutureTest {
 					return item;
 				}
 			});
+			future.addListener(new Runnable() {
+				
+				@Override
+				public void run() {
+					System.err.println("===addListener======");
+					
+				}
+			},service);
 
 			Futures.addCallback(future, new FutureCallback<Integer>() {
 
@@ -47,7 +57,7 @@ public class ListenableFutureTest {
 			});
 		}
 
-		service.shutdown();
+//		service.shutdown();
 
 	}
 }

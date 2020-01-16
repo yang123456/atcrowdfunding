@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.atguigu.atcrowdfunding.dubbo.CityDubboConsumerService;
@@ -18,6 +19,8 @@ import com.atguigu.atcrowdfunding.dubbo.CityDubboConsumerService;
 //mapper 接口类扫描包配置
 @MapperScan("com.atguigu.atcrowdfunding.mapper")
 @EnableScheduling
+//开启异步调用方法
+@EnableAsync
 public class AtcrowdfundingApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext run = SpringApplication.run(AtcrowdfundingApplication.class, args);

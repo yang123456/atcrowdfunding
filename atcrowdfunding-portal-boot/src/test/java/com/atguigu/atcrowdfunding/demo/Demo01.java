@@ -23,5 +23,8 @@ public class Demo01 {
         System.out.println(applicationContext);
         applicationContext.close();
 
+        
+        
+        
 	}
 }
