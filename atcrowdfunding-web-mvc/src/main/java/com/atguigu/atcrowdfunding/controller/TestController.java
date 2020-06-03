@@ -55,6 +55,13 @@ public class TestController {
 		return "tongxunlu/tongxunlu";
 	}
 	
+	@RequestMapping("/parent")
+	public String parent(HttpServletRequest request, Model model) {
+		List<User> users = userService.queryAll();
+		model.addAttribute("users", users);
+		return "iframe/parent";
+	}
+	
 	@RequestMapping("/redirect")
 	public String redirect(HttpServletRequest request, Model model) {
 		model.addAttribute("name", "zhangsan");

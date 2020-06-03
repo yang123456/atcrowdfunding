@@ -24,6 +24,11 @@ public class ViewResolverController {
 	public String index() {
 		return "jsp/index";
 	}
+	
+	@RequestMapping("/child")
+	public String child() {
+		return "jsp/child";
+	}
 
 	@RequestMapping(value = { "/thymeleafindex.htm" })
 	public String index(Model model) {
