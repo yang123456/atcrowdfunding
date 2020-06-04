@@ -48,6 +48,12 @@ public class TestController {
 		return "index";
 	}
 	
+	
+	@RequestMapping("/fileUpload")
+	public String fileUpload(HttpServletRequest request, Model model) {
+		return "advertisement/fileUpload";
+	}
+	
 	@RequestMapping("/tongxunlu")
 	public String tongxunlu(HttpServletRequest request, Model model) {
 		List<User> users = userService.queryAll();

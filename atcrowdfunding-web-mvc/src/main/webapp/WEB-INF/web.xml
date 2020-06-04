@@ -4,6 +4,23 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath*:spring/spring-*.xml</param-value>
   </context-param>
+  
+  <servlet>
+    <servlet-name>FileUploadServlet</servlet-name>
+    <servlet-class>com.atguigu.atcrowdfunding.controller.FileUploadServlet</servlet-class>
+　　<!-- 设置初始化参数 -->
+    <init-param>
+     <param-name>savePath</param-name>
+     <param-value>uploads</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>FileUploadServlet</servlet-name>
+    <url-pattern>/servlet/fileServlet</url-pattern>
+  </servlet-mapping>
+  
+  
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
